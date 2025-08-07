@@ -26,11 +26,11 @@ function pedirIntento() {
       return;
     } else {
       const diferencia = Math.abs(numeroSecreto - intento);
-      if (diferencia <= 5) {
+      if (diferencia <=10) {
         console.log("🔥 ¡Muy caliente!");
-      } else if (diferencia <= 10) {
+      } else if (diferencia <= 15) {
         console.log("🌡️ Caliente");
-      } else if (diferencia <= 20) {
+      } else if (diferencia <= 25) {
         console.log("❄️ Frío");
       } else {
         console.log("🧊 Muy frío");
