@@ -1,0 +1,44 @@
+const readline = require('readline');
+
+// Número aleatorio entre 1 y 100
+const numeroSecreto = Math.floor(Math.random() * 100) + 1;
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+console.log("🎯 ¡Bienvenido al juego de adivinar el número!");
+console.log("Adivina un número entre 1 y 100. Escribe tu intento:");
+
+let intentos = 0;
+
+function pedirIntento() {
+  rl.question("👉 Tu número: ", (respuesta) => {
+    const intento = parseInt(respuesta);
+    intentos++;
+
+    if (isNaN(intento)) {
+      console.log("🚫 Eso no es un número válido.");
+    } else if (intento === numeroSecreto) {
+      console.log(`🎉 ¡Felicidades! Adivinaste el número ${numeroSecreto} en ${intentos} intentos.`);
+      rl.close();
+      return;
+    } else {
+      const diferencia = Math.abs(numeroSecreto - intento);
+      if (diferencia <= 5) {
+        console.log("🔥 ¡Muy caliente!");
+      } else if (diferencia <= 10) {
+        console.log("🌡️ Caliente");
+      } else if (diferencia <= 20) {
+        console.log("❄️ Frío");
+      } else {
+        console.log("🧊 Muy frío");
+      }
+    }
+
+    pedirIntento();
+  });
+}
+
+pedirIntento();
