@@ -1,8 +1,8 @@
 const readline = require('readline');
 
-// Número aleatorio entre 1 y 100 en donde la idea es que le jugador intente adivinar el numero con pistas de frio y caliente
+// Número aleatorio entre 1 y 150 en donde la idea es que le jugador intente adivinar el numero con pistas de frio y caliente
 // No se que mas poner para los cambios pero esta curioso la verdad :D
-const numeroSecreto = Math.floor(Math.random() * 100) + 1;
+const numeroSecreto = Math.floor(Math.random() * 150) + 1;
 
 const rl = readline.createInterface({
   input: process.stdin,
